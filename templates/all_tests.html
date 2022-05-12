@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>Избиране на тест</title>
+    <link rel=stylesheet type="text/css" href="{{url_for('static',filename='main.css')}}">
+    <meta charset="urf-8">
+    
+    <script type='text/javascript'>
+        var validateflag=0;
+        
+        function validateForm() {
+            if (validateflag==0) {
+                var x = document.forms["ENBG"]["qnum"].value;
+                }
+            if (validateflag==1) {
+                var x = document.forms["BGEN"]["qnum1"].value;
+                }
+            if (x == "" || x == null) {
+                alert("Трябва да въведете броя на думите");
+                return false;
+                }
+        }
+        
+        function switchLang() {
+            var secform = document.getElementById('BGEN'); 
+            var firform = document.getElementById('ENBG');
+            if (window.getComputedStyle(secform).display === "none"){
+                firform.style.display='none';
+                secform.style.display='block';
+                validateflag=1;
+                return;
+            }   
+            if (window.getComputedStyle(firform).display === "none"){
+                secform.style.display='none';
+                firform.style.display='block';
+                validateflag=0;
+                return;
+            }   
+        }
+    </script>
+    
+</head>
+
+
+<body>
+
+<div class="title_page">
+    <h1>На тази страница може да си изберете упражнението , което искате да направите</h1>
+    <br><br>
+    <div id='ENBG'>
+         <form name='ENBG' action="{{url_for('test1')}}" autocomplete="off" onsubmit="return validateForm()" method="POST" required>
+            <label class='unselectable' for="quantity">Превод на </label>
+            <input type="number" id="qnum" name="questionnumbers" min="1" max="123" value="5">
+            <label class='unselectable' for="quantity">думи от</label>
+            <a class="a_begin unselectable" onclick="switchLang()">английски на български</a>
+            <input type="submit" value="Старт">
+         </form>
+         <br><br>
+
+    </div>
+    <div id='BGEN'>
+         <form  name='BGEN' action="{{url_for('test2')}}" autocomplete="off" onsubmit="return validateForm()" method="POST" required>
+            <label class='unselectable' for="quantity">Превод на </label>
+            <input type="number" id="qnum1" name="questionnumbers" min="1" max="123" value="5">
+            <label class='unselectable' for="quantity">думи от</label>
+            <a class="a_begin unselectable" onclick="switchLang()">български на английски</a>
+            <input type="submit" value="Старт">
+         </form>
+        <br><br>    
+    </div>
+    
+</div>
+    
+
+
+   
+    
+
+</body>
+
+
+</html>
