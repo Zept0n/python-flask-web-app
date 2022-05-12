@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Тест 1</title>
+    <link rel=stylesheet type="text/css" href="{{url_for('static',filename='main.css')}}">
+    <meta charset="urf-8">
+</head>
+
+
+<body>
+    <script type='text/javascript'>
+        var countDownDate = new Date().getTime() + 1500 + 1000*{{test_time}}
+        var x = setInterval(function(){
+            var now = new Date().getTime();
+            var distance=countDownDate-now;
+            var minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+            var seconds = Math.floor((distance % (1000*60)) / 1000);
+            document.getElementById('demo').innerHTML="Оставящо време:" + minutes + "м" + seconds + "с" ;
+            var again = document.getElementById('test_again');
+            again.style.display='none';
+            
+            if (distance<0){
+                clearInterval(x);
+                document.getElementById('demo').innerHTML = 'Времето изтече';
+                document.getElementById('button2').disable=true;
+                var test_form = document.getElementById('test');
+                test_form.style.display='none';
+                again.style.display='block';
+            }
+            },1000)
+    </script>
+    
+    <div id="test">
+        <div class='title_page'>
+            <h1></h1>
+            <h1>Ще се появят {{question_num}} думи на {{lang1}} , които трябва да се преведат на {{lang2}}.</h1>
+        </div>
+        <div class='begin'>
+            <form action="{{url_for('answer1')}}" method="POST" autocomplete="off">
+                <table align='center'>
+                    {% for id in range(0,displayed_words|length) %}
+                    <tr>
+                        <td>
+                            <label>
+                                {{displayed_words[id][0]}}
+                            </label>
+                        </td>
+                        <td>
+                            <input type='text' name={{names[id]}} placeholder="Преведи">
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td colspan="2">
+                            <input type='submit' id='button2' value='Провери' >
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+<p id='demo'></p>
+<div id='test_again'>
+    <div class='container'>
+        <img class='pointer unselectable circular' onclick="window.location.reload();" src="{{url_for('static',filename='Pictures/button_again.png')}}" width="150px">
+        <div class='centered'>
+            <a class='a_again unselectable pointer' onclick="window.location.reload();">Опитай пак</a>
+        </div>
+    </div>
+</div>
+    
+</body>
+
+
+</html>
