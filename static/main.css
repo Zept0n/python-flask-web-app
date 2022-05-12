@@ -1,0 +1,160 @@
+body {
+    background: linear-gradient(10deg,#00091F, #09203F,#032166,#169090,#01BABA);
+	background-size: 200% 200%;
+    min-height: 80vh;
+	-webkit-animation: gradient 25s ease infinite;
+	        animation: gradient 25s ease infinite;
+}
+
+@-webkit-keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+h1, h2 {
+    color:white;
+}
+
+.title_page {
+    text-align: center;
+    padding: 70px;
+}
+
+.begin {
+    text-align: center;
+}
+
+.a_begin {
+    color:white;
+    text-decoration: none;
+    padding: 20px 25px;
+    text-align: center;
+    font-size: 32px;
+}
+
+.a_begin:hover {
+    text-decoration: none;
+    color:#002D6D;
+    padding: 20px 25px;
+    text-align: center;
+    background-color: white;
+    font-size: 32px;
+}
+
+.a_again {
+    color:white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.img_begin {
+    padding:0px 0px 30px 0px;
+}
+
+label {
+    font-size: 32px;
+    color:white;
+    text-align: center;
+}
+
+input {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 24px;
+    color:#002D6D;
+    font-family: "Times New Roman";
+}
+
+#button2 {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color:#002D6D;
+    background-color: white;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+#button2:hover {
+    background-color: #003366;
+    color:white;
+    
+}
+
+.centered {
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+p {
+    text-align: center;
+    font-size: 50px;
+    margin-top: 0px;
+    color: white;
+    padding: 30px;
+}
+
+#test_again {
+    display: none;
+}
+
+#BGEN {
+    display: none;
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.pointer {cursor: pointer;}
+
+.circular {
+    border-radius: 50%;
+}
+
+input[type=submit] {
+  background-color: #242240;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  cursor: pointer;
+}
